@@ -70,7 +70,7 @@ Foundry value vs others:
 - Governance (permissions, lineage) is native; no separate catalog or glue code as in cloud-native stacks.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Source Snapshot/Delta"] --> B["Detect New Business Keys"]
     C["Previous Dimension"] --> B
     B --> D["Insert New Rows Only"]
@@ -175,7 +175,7 @@ Foundry value vs others:
 - Built-in recomputation semantics mean schema/logic changes automatically propagate; in cloud-native stacks, this usually requires explicit job orchestration and dependency management.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Source Snapshot/Delta"] --> B["Compare Attributes by Business Key"]
     C["Current SCD2 Rows"] --> B
 
@@ -266,7 +266,7 @@ Foundry value vs others:
 - Centralized access control and object model; no need to federate IAM/policies across separate services.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Source Snapshot/Delta"] --> B["Join with Existing Rows"]
     C["Previous Type 3 Dimension"] --> B
 
@@ -348,7 +348,7 @@ Foundry value vs others:
 - Dataset versioning supports audit/regulatory use cases with minimal additional engineering compared to piecing together logs/Delta history across tools.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Source Snapshot/Delta"] --> B["Compare Source with Current Dimension"]
     C["Current Dimension Table"] --> B
     D["History Table"] --> E["Append Changed Versions"]
@@ -430,7 +430,7 @@ Foundry value vs others:
 - Reuse of the same mini-dimension in many downstream contexts is handled by dependency graph; in cloud platforms this often requires explicit coordination across multiple jobs and services.
   
 ```mermaid
-flowchart LR
+flowchart TD
     A["Source Snapshot/Delta"] --> B["Derive Volatile Attribute Profile"]
     C["Previous Mini-Dimension"] --> D["Check Existing Profiles"]
     E["Previous Core Dimension"] --> F["Update Core Rows"]
@@ -521,7 +521,7 @@ Foundry value vs others:
 - Versioned logic and data make it easier to compare different SCD strategies over time and revert if needed, without stitching together multiple data lake / job history systems.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Source Snapshot/Delta"] --> B["Current Rows for Each Key"]
     C["Previous SCD6 Dimension"] --> B
     B --> D["Classify Attribute Changes"]
